@@ -1,6 +1,5 @@
 Keyboard blank-out
 Colouring
-Feedback
 Login system 
 Stats / compare
 Title, splash text, numbering

@@ -1,10 +1,29 @@
 /* ============ SETUP ============ */
 const L = CONFIG.wordLength, N = CONFIG.maxGuesses;
-const words = CONFIG.words.map(w => w.toLowerCase()).filter(w => w.length === L);
 const [y, m, d] = CONFIG.startDate.split("-").map(Number);
 const today = new Date();
 const dayNum = Math.max(0, Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(y, m - 1, d)) / 864e5));
-const answer = words[dayNum % words.length];
+
+// Shuffle the answers once (same order for everyone), then use one per day.
+function shuffle(arr, seed) {
+  let s = seed >>> 0;
+  const rand = () => {
+    s = (s + 0x6D2B79F5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+const answerList = shuffle(ANSWERS.slice(), CONFIG.shuffleSeed);
+const validGuesses = new Set(GUESSES);
+ANSWERS.forEach(w => validGuesses.add(w)); // answers are always valid guesses
+const answer = answerList[dayNum % answerList.length];
 const KEY = "wordgame-" + dayNum;
 
 document.title = CONFIG.title;
@@ -90,7 +109,7 @@ function press(k) {
   if (over) return;
   if (k === "Enter") {
     if (current.length < L) return flash("Not enough letters");
-    if (!CONFIG.allowAnyGuess && !words.includes(current)) return flash("Not in our word list");
+    if (!validGuesses.has(current)) return flash("Not in word list");
     guesses.push(current); current = "";
     try { localStorage.setItem(KEY, JSON.stringify(guesses)); } catch (e) { }
     const last = guesses[guesses.length - 1], sc = score(last);

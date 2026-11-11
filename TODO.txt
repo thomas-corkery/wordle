@@ -6,6 +6,7 @@ Leaderboards
 Remove zoom ability. Some users zoom in when double tapping backspace
 Add word definitions at game end
 Title, splash text, numbering
+Free play
 
 ===== COMPLETE =====
 x Acceptable guess list 

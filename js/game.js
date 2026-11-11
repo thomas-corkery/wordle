@@ -76,8 +76,7 @@ layout.forEach(row => {
   [...row].forEach(c => {
     const b = document.createElement("button"); b.className = "k";
     if (c === "+") { b.textContent = "Enter"; b.classList.add("w"); b.onclick = () => press("Enter"); }
-    else if (c === "-") { b.textContent = "Del"; b.classList.add("w"); b.onclick = () => press("Backspace"); }
-    else { b.textContent = c; keys[c] = b; b.onclick = () => press(c); }
+    else if (c === "-") { b.textContent = "⌫"; b.setAttribute("aria-label", "Delete"); b.classList.add("w"); b.onclick = () => press("Backspace"); }    else { b.textContent = c; keys[c] = b; b.onclick = () => press(c); }
     kr.appendChild(b);
   });
   kb.appendChild(kr);

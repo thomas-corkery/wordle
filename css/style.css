@@ -80,11 +80,13 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   max-width: 500px;
   margin-top: auto
 }
-.kr { display: flex; gap: 5px; justify-content: center }
+.kr { display: grid; grid-template-columns: repeat(20, 1fr) }
 
 .k {
-  flex: 1;
-  max-width: 44px;
+  grid-column: span 2;
+  margin: 0 2.5px;
+  min-width: 0;
+  padding: 0;
   height: 52px;
   border: 0;
   border-radius: 6px;
@@ -95,7 +97,8 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   text-transform: uppercase;
   cursor: pointer
 }
-.k.w { max-width: 66px; font-size: .75rem }
+.k.w { grid-column: span 3; font-size: .75rem }
+.kr:nth-child(2) .k:first-child { grid-column: 2 / span 2 }
 .k.hit { background: var(--hit) }
 .k.near { background: var(--near) }
 .k.miss { background: var(--miss) }

@@ -330,10 +330,8 @@
 
     document.getElementById("share").onclick = () => {
       const em = { hit: "🟩", near: "🟨", miss: "⬛" };
-      const won = guesses[guesses.length - 1] === answer;
-      const text = CONFIG.title + " No. " + (dayNum + 1) + " " + (won ? guesses.length : "X") + "/" + N + "\n\n" +
-        guesses.map(g => score(g).map(s => em[s]).join("")).join("\n");
-      const done = () => { msg.textContent = "Result copied. Paste it in your group chat!"; };
+      const text = guesses.map(g => score(g).map(s => em[s]).join("")).join("\n");
+      const done = () => { msg.textContent = "Result copied!"; };
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => { msg.textContent = text; });
       else msg.textContent = text;
     };

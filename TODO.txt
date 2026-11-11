@@ -1,13 +1,14 @@
-===== TODO =========
-Keyboard blank-out
-Colouring
+======= TODO =======
 Login system 
 Stats / compare
-Title, splash text, numbering
 Errors
 Leaderboards
 Remove zoom ability. Some users zoom in when double tapping backspace
+Add word definitions at game end
+Title, splash text, numbering
 
 ===== COMPLETE =====
 x Acceptable guess list 
 x Possible daily word list
+x Colouring
+x Keyboard blank-out

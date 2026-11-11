@@ -3,10 +3,10 @@
   --ink: #000000;
   --tile: #ffffff;
   --line: #c0c3c6;
-  --key: #c0c3c6;
+  --key: #d0d3d6;
   --hit: #00bb00;
   --near: #ffbb00;
-  --miss: #c0c3c6;
+  --miss: #707274;
   --onfill: #ffffff;
 }
 
@@ -55,7 +55,7 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   font-weight: 800;
   text-transform: uppercase
 }
-.t.f { border-color: var(--ink) }
+.t.f { border-color: var(--key) }
 .t.hit, .t.near, .t.miss { color: var(--onfill); border-color: transparent }
 
 .hit { background: var(--hit) }
@@ -96,7 +96,9 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   cursor: pointer
 }
 .k.w { max-width: 66px; font-size: .75rem }
-.k.hit, .k.near, .k.miss { color: var(--onfill) }
+.k.hit { background: var(--hit) }
+.k.near { background: var(--near) }
+.k.miss { background: var(--miss) }
 
 .k:focus-visible, #share:focus-visible { outline: 3px solid var(--near); outline-offset: 2px }
 

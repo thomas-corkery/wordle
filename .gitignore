@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+
+# Local formatting setup
+.prettierrc.json
+package.json
+/.vscode

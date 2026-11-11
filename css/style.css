@@ -147,3 +147,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .5) }
   font-weight: 800; cursor: pointer; background: var(--key); color: var(--ink)
 }
 #fb-send { background: var(--hit); color: #fff }
+
+/* Double tap to zoom prevention */
+html, button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}

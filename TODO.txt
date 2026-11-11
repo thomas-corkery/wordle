@@ -3,7 +3,6 @@ Login system
 Stats / compare
 Errors
 Leaderboards
-Remove zoom ability. Some users zoom in when double tapping backspace
 Add word definitions at game end
 Title, splash text, numbering
 Free play
@@ -13,3 +12,4 @@ x Acceptable guess list
 x Possible daily word list
 x Colouring
 x Keyboard blank-out
+x Double tap to zoom prevention

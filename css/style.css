@@ -83,6 +83,10 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
 .kr { display: grid; grid-template-columns: repeat(20, 1fr) }
 
 .k {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 5px);
   grid-column: span 2;
   margin: 0 2.5px;
   min-width: 0;
@@ -97,9 +101,16 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   text-transform: uppercase;
   cursor: pointer
 }
+
+.k svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
 .k.w { grid-column: span 3; font-size: .75rem }
 .kr:nth-child(2) .k:first-child { grid-column: 2 / span 2 }
-.kr:nth-child(3) .k:last-child { font-size: 0.9rem }
 .k.hit { background: var(--hit) }
 .k.near { background: var(--near) }
 .k.miss { background: var(--miss) }

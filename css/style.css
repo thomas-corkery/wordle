@@ -1,0 +1,145 @@
+:root {
+  --bg: #ffffff;
+  --ink: #000000;
+  --tile: #ffffff;
+  --line: #c0c3c6;
+  --key: #c0c3c6;
+  --hit: #00bb00;
+  --near: #ffbb00;
+  --miss: #c0c3c6;
+  --onfill: #ffffff;
+}
+
+/* Dark mode colours */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --ink: #ffffff;
+    --tile: #000000;
+    --line: #3a3b3c;
+    --key: #707274;
+    --miss: #3a3b3c;
+  }
+}
+
+* { box-sizing: border-box }
+
+html, body { height: 100%; margin: 0 }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Sans", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 10px 16px;
+  gap: 10px
+}
+
+h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em }
+#sub { margin: 0; font-size: .9rem; opacity: .7 }
+#msg { min-height: 1.4em; font-weight: 500; text-align: center }
+
+/* ---------- Board ---------- */
+#board { display: grid; gap: 6px }
+.row { display: grid; gap: 6px }
+
+.t {
+  width: clamp(44px, 13vw, 60px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background: var(--tile);
+  border: 2px solid var(--line);
+  font-size: 1.7rem;
+  font-weight: 800;
+  text-transform: uppercase
+}
+.t.f { border-color: var(--ink) }
+.t.hit, .t.near, .t.miss { color: var(--onfill); border-color: transparent }
+
+.hit { background: var(--hit) }
+.near { background: var(--near) }
+.miss { background: var(--miss) }
+
+.row.shake { animation: sh .35s }
+@keyframes sh {
+  25% { transform: translateX(-6px) }
+  75% { transform: translateX(6px) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row.shake { animation: none }
+}
+
+/* ---------- Keyboard ---------- */
+#kb {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: auto
+}
+.kr { display: flex; gap: 5px; justify-content: center }
+
+.k {
+  flex: 1;
+  max-width: 44px;
+  height: 52px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--key);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer
+}
+.k.w { max-width: 66px; font-size: .75rem }
+.k.hit, .k.near, .k.miss { color: var(--onfill) }
+
+.k:focus-visible, #share:focus-visible { outline: 3px solid var(--near); outline-offset: 2px }
+
+/* ---------- Share button ---------- */
+#share {
+  display: none;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--hit);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer
+}
+
+/* ---------- Feedback ---------- */
+#fb-open {
+  background: none; border: 0; color: var(--ink); opacity: .7;
+  font: inherit; font-size: .85rem; text-decoration: underline; cursor: pointer
+}
+
+dialog {
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  width: min(92vw, 420px);
+  padding: 20px
+}
+dialog::backdrop { background: rgba(0, 0, 0, .5) }
+
+#fb-form { display: flex; flex-direction: column; gap: 8px }
+#fb-form h2 { margin: 0 0 4px; font-size: 1.2rem }
+#fb-form textarea, #fb-form input[type=text] {
+  font: inherit; padding: 8px; border: 2px solid var(--line);
+  border-radius: 6px; background: var(--tile); color: var(--ink)
+}
+
+.fb-actions { display: flex; gap: 8px; justify-content: flex-end }
+.fb-actions button {
+  padding: 8px 16px; border: 0; border-radius: 8px; font: inherit;
+  font-weight: 800; cursor: pointer; background: var(--key); color: var(--ink)
+}
+#fb-send { background: var(--hit); color: #fff }

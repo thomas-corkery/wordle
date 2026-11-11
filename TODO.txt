@@ -8,3 +8,4 @@ Errors
 Acceptable guess list 
 Possible daily word list
 Leaderboards
+Remove zoom ability. Some users zoom in when double tapping backspace

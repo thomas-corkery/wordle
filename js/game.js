@@ -28,7 +28,6 @@ const KEY = "wordgame-" + dayNum;
 
 document.title = CONFIG.title;
 document.getElementById("title").textContent = CONFIG.title;
-document.getElementById("sub").textContent = "#" + (dayNum + 1);
 
 let guesses = [], current = "", over = false;
 try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) guesses = s; } catch (e) { }

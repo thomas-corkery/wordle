@@ -140,7 +140,7 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
 
 dialog {
   border: 2px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--bg);
   color: var(--ink);
   width: min(92vw, 420px);
@@ -160,7 +160,20 @@ dialog::backdrop { background: rgba(0, 0, 0, .5) }
   padding: 8px 16px; border: 0; border-radius: 8px; font: inherit;
   font-weight: 800; cursor: pointer; background: var(--key); color: var(--ink)
 }
-#fb-send { background: var(--hit); color: #fff }
+
+#fb-send { 
+  background: var(--hit);
+  color: #fff;
+  border: 2px solid var(--hit);
+  border-radius: 100px;
+}
+
+#fb-cancel { 
+  background: none; 
+  color: var(--ink);
+  border: 2px solid var(--line); 
+  border-radius: 100px;
+}
 
 /* Double tap to zoom prevention */
 html, button {
@@ -170,5 +183,5 @@ html, button {
 
 /* Underlines buttons when mouse hovers */
 @media (hover: hover) {
-  #share:hover, #fb-send:hover { text-decoration: underline }
+  #share:hover, #fb-send:hover, #fb-cancel:hover { text-decoration: underline }
 }

@@ -1,13 +1,13 @@
 :root {
   --bg: #ffffff;
   --ink: #000000;
+  --bink: #ffffff;
   --tile: #ffffff;
-  --line: #c0c3c6;
-  --key: #d0d3d6;
-  --hit: #00bb00;
-  --near: #ffbb00;
-  --miss: #707274;
-  --onfill: #ffffff;
+  --line: #e0e4e8;
+  --key: #c0c3c6;
+  --hit: #40b040;
+  --near: #f0b000;
+  --miss: #808890;
 }
 
 /* Dark mode colours */
@@ -18,6 +18,8 @@
     --tile: #000000;
     --line: #3a3b3c;
     --key: #707274;
+    --hit: #20a020;
+    --near: #e0a000;
     --miss: #3a3b3c;
   }
 }
@@ -56,7 +58,7 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   text-transform: uppercase
 }
 .t.f { border-color: var(--key) }
-.t.hit, .t.near, .t.miss { color: var(--onfill); border-color: transparent }
+.t.hit, .t.near, .t.miss { color: var(--bink); border-color: transparent }
 
 .hit { background: var(--hit) }
 .near { background: var(--near) }
@@ -93,7 +95,7 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
   padding: 0;
   height: 52px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 4px;
   background: var(--key);
   color: var(--ink);
   font: inherit;
@@ -120,11 +122,11 @@ h1 { margin: 4px 0 0; font-size: 2rem; font-weight: 800; letter-spacing: -.02em 
 /* ---------- Share button ---------- */
 #share {
   display: none;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--hit);
-  color: #ffffff;
+  padding: 5px 10px;
+  border: 2px solid var(--line);
+  border-radius: 100px;
+  background: none;
+  color: var(--ink);
   font: inherit;
   font-weight: 800;
   cursor: pointer
@@ -164,4 +166,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .5) }
 html, button {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Underlines buttons when mouse hovers */
+@media (hover: hover) {
+  #share:hover, #fb-send:hover { text-decoration: underline }
 }
